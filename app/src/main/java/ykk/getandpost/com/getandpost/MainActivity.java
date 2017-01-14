@@ -24,6 +24,14 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+/*POST提交数据的步骤:
+1.构造请求对象
+2.将需要传递给服务器端的数据位置在键值对对象当中
+3.将准备好的键值对放置在List当中。
+4.生成代表请求体的对象
+5. 将存有请求键值对的List对象放置在请求题对象当中；
+6.将请求体对象放置到请求对象当中
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button button;
     private EditText name_editText;
@@ -96,8 +104,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-
-
     //对线程使用Get方法向服务器发送请求
     class GetThread extends Thread
     {
@@ -122,7 +128,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     BufferedReader reader=new BufferedReader(new InputStreamReader(entity.getContent()));
                     String result=reader.readLine();
                     Log.d("GetAndPost",result);
-
                 }
             } catch (IOException e) {
                 e.printStackTrace();
